@@ -17,7 +17,11 @@ int main()
     char ch;
     int count = 0;
     cin.get(ch); // attempt to read a char
-    while (cin.fail() == false) //test for EOF
+
+    // while (!cin.fail())
+    // while (cin)
+    // while (cin.get(ch))
+    while (cin.fail() == false) //test for EOF 
     {
         cout << ch; // echo character
         ++count;
