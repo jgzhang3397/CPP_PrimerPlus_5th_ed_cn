@@ -23,7 +23,7 @@ int main()
         if(ch == '\n')
             cout << ch; // done if newline
         else
-            cout << ch; // done otherwise ch++ or ch+1 something
+            cout << ch+1; // done otherwise ch++ or ch+1 something
         cin.get(ch);
     }
     cout << "\nPlease excuse the slight confusion.\n";
