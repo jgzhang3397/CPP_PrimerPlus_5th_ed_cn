@@ -13,33 +13,51 @@
  */
 
 #include <iostream>
-#include <cctype>
 #include <array>
 
 using namespace std;
 
+const int MAX = 10;
+
 int main()
 {
-    double array[10] = {0.0};
-    int num;
-    int avg = 0;
-    int sum = 0;
-    int i = 0; // index of array
-    while ((cin >> num).get() && isdigit(num) && i <= 9)
+    // get data
+    array<double, MAX> donations; // only double numbers store in array
+    cout << "Please enter the 10 donation values: " << endl;
+    cout << "You may enter up to " << MAX;
+    cout << " values <non-numeric input to terminate>"<< endl;
+    cout << "Donation #1: ";
+    int i = 0;
+    while (i< MAX && cin >> donations[i])
     {
-        array[i] = num;
-        i++;
+        if(++i < MAX)
+            cout << "Donation #" << i+1 << ": ";
     }
 
-    int count = 0;
-    for(int j = 0; j<=i; j++)
+    // calculate average
+    double total = 0.0;
+    for(int j=0; j<i; j++)
     {
-        sum += array[j];
-        avg = sum/i;
-        if(array[j] > avg)
-            count ++;
+        total += donations[j];
     }
-    cout << "The average of the numbers :"<< avg << endl;
-    cout << "How many numbers in the array are larger than the average :"<< count << endl;
-    return 0;
+    double avg = 0;
+    avg = total / i;
+
+    // calculate numbers over the number of average
+    int count = 0;
+    for(int j = 0; j<i; j++)
+    {
+        if(donations[j]>avg)
+            count++;
+    }
+
+    // report values 
+    if(i==0)
+        cout << "Please enter numberic input.";
+    else
+    {
+        cout << "The average of the array " << avg << endl;
+        cout << "The number over the average: " << count << endl;
+    }
+    
 }
