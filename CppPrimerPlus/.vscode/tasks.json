@@ -8,7 +8,7 @@
 			"args": [
 				"-fcolor-diagnostics",
 				"-fansi-escape-codes",
-				//"-g", avoid generate .dSYM files
+				"-g", 
 				"${file}",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
