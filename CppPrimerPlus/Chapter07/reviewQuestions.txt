@@ -1,0 +1,132 @@
+#1. What are the three steps in using a function?
+    1. defining the function
+    2. providing a prototype
+    3. calling the function
+
+#2. Construct function prototypes that match the following descriptions:
+
+    a. igor() takes no arguments and has no return value.
+            void igor(); 
+
+    b. tofu() takes an int argument and returns a float.
+            float tofu(int);
+
+    c. mpg() takes two type double arguments and returns a double.
+            double mpg(double a1, double a2);
+
+    d. summation() takes the name of a long array and 
+       an arraysize as values and returns a long value.
+            long summation(long array[]， int size);
+
+    e. doctor() takes a string argument (the string is not to be modified)and
+       return a double value.
+            double doctor(const string s1);
+
+    f. ofcourse() takes a boss structure as an argument and returns nothing.
+            void ofcourse(boss dude);
+
+    g. plot() takes a pointer to a map structure as an argument and returns a string.
+            string plot(map *pmap );
+
+#3. Write a function that takes three arguments:
+    the name of an int array, the arraysize,and an int value. 
+    Have the function set each element of the array to the int value.
+        void set_array(int array[], int size, int value)
+        {
+            for(int i=0; i<size; i++)
+                array[i] = value;
+        }
+
+#4. Write a function that takes three arguments: a pointer to the first element of 
+    a range in an array, a pointer to the element following the end of a range in an array, 
+    and an int value. Have the function set each element of the array to the int value.
+        void set_array(int * begin; int * end; int value)
+        {
+            for(int * pt = begin; pt != end; pt++)
+                *pt = value;
+        }
+
+#5. Write a function that takes a double arrayname and an arraysize as arguments and 
+    returns the largest value in that array. 
+    Note that this function shouldn’t alter the contents of the array.
+        double biggest(const double foot[], int size)
+        {
+            double max;
+            if (size < 1)
+            {
+                cout << “Invalid array size of “ << size << endl; 
+                cout << “Returning a value of 0\n”;
+                return 0;
+            }
+            else 
+            {
+                max = foot[0];
+                for(int i = 0; i < size; i++)
+                {
+                    if(foot[i] > max)
+                        max = foot[i];
+                }
+                return max;
+            }
+        }
+
+#6. Why don’t you use the const qualifier for function arguments that are 
+    one of the fundamental types?
+        When a program passes a fundamental type such as an int or a double, 
+        it passes it by value so that the function works with a copy. 
+        Thus, the original data is already protected.
+
+#7. What are the three forms a C-style string can take in a C++program?
+    1. A string can be stored in a char array
+    2. It can be represented by a string constant in double quotation marks
+    3. It can be represented by a pointer pointing to the first character of a string.
+
+#8. Write a function that has this prototype:
+        int replace(char * str, char c1, char c2);
+    Have the function replace every occurrence of c1 in the string str with c2, and have the
+    function return the number of replacements it makes.
+    int replace (char * str, char c1, char c2)
+    {
+        int count = 0;
+        while(*str)
+        {
+            if(*str == c1)
+            {
+                *str = c2;
+                count ++;
+            }
+            str++;  
+        }
+        return count;
+    }
+
+#9. What does the expression * ”pizza” mean? What about “taco”[2]?
+    1. Because C++ interprets “pizza” as the address of its first element,
+       applying the *operator yields the value of that first element, which is the character p.
+    2. Because C++ interprets “taco” as the address of its first element, 
+       it interprets “taco”[2] as the value of the element two positions down the line—that is, 
+       as the character c 
+    In other words, the string constant acts the same as an array name.
+
+#10. C++ enables you to pass a structure by value,and it lets you pass the address of a structure. 
+     If glitz is a structure variable, how would you pass it by value? 
+     How would you pass its address? What are the trade-offs of the two approaches?
+
+    To pass it by value:
+        you just pass the structure name glitz.
+    To pass its address:
+        you use the address operator &glitz.
+    Passing by value automatically protects the original data, 
+    but it takes time and memory. 
+    Passing by address saves time and memory but doesn’t protect the original data 
+    unless you use the const modifier for the function parameter.
+
+
+#11. The function judge() has a type int return value. As an argument, 
+     it takes the address of a function. 
+     The function whose address is passed, 
+     in turn, takes a pointer to a const char as an argument and returns an int. 
+     Write the function prototype.
+
+     int judge(int (*pf)(const char *));
+
