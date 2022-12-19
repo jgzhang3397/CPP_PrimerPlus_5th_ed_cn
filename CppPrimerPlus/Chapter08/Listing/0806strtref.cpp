@@ -6,7 +6,11 @@
  * @date 2022-12-17
  * 
  * @copyright Copyright (c) 2022
- * 
+ * ventures into three new areas
+ * 1. The first is using a reference to a structure, illustrated by the first function call: use(looper)
+ * 2. The second new area is using a reference as a return value
+ * 3. The third new area is that the program uses the function call to access a structure member:
+ *    A function that returns a reference is actually an alias for the referred-to variable.
  */
 
 #include <iostream>
