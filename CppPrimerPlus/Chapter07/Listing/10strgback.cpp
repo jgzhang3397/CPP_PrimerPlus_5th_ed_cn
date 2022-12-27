@@ -33,6 +33,7 @@ int main()
     is that it makes it the programmer’s responsibility to remember to use delete.
     */
     delete [] ps; // free memory
+    
     ps = buildstr('+', 20); // reuse pointer
     cout << ps << "-DONE-" << ps << endl;
 
